@@ -6,6 +6,9 @@
 - Filter persistence via cookies
 - Bar + line chart interactivity
 - Seed script with 100+ records
+- Ant Design UI, toasts, loading states, empty states
+- Dedicated login and register pages
+- Logout + automatic logout on unauthorized responses
 
 ## Monorepo Structure
 
@@ -38,6 +41,12 @@ npm run dev
 
 Open `http://localhost:3000`
 
+### Frontend Routes
+
+- `/login` - Login screen
+- `/register` - Register screen
+- `/` - Protected dashboard route (redirects to login if not authenticated)
+
 ## API Endpoints
 
 - `POST /api/v1/register`
@@ -61,9 +70,22 @@ This creates:
 
 - **FastAPI + SQLAlchemy** for typed, modular backend APIs.
 - **Service layer separation** keeps endpoint logic thin and testable.
-- **Next.js + Recharts** for responsive interactive charts.
+- **Next.js + Recharts + Ant Design** for responsive, polished UX and data visualization.
 - **Cookie-based filter persistence** to satisfy refresh-state requirement.
 - **Track-on-interaction design** ensures every filter/chart action is logged.
+- **Axios interceptor + centralized auth helpers** enable auto-logout on 401 responses.
+
+## Frontend UX Features
+
+- Toast notifications for login, register, API failures, and logout.
+- Loading spinners during dashboard data fetch and auth bootstrap.
+- Empty states for charts when no filtered data is available.
+- One-click logout button in dashboard header.
+- Automatic session cleanup and redirect when API returns unauthorized.
+
+## Scale Essay (1M write-events/minute)
+
+At 1 million writes per minute, I would separate ingestion from querying by introducing a durable event stream (Kafka/Kinesis/PubSub) in front of storage so the API only validates/authenticates and enqueues events. Stateless consumers would batch writes into a high-throughput store (partitioned Postgres, ClickHouse, or a time-series database), while a separate aggregation pipeline would build precomputed rollups by feature/time bucket for fast dashboard reads. I would add idempotency keys, backpressure controls, and autoscaled workers, then serve analytics from cached/materialized views (Redis + OLAP tables) instead of executing heavy aggregations on the primary transactional path.
 
 
 ## Submission Checklist

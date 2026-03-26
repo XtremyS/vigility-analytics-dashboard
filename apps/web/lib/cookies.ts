@@ -31,3 +31,11 @@ export const saveToken = (token: string) => {
 };
 
 export const loadToken = () => Cookies.get(TOKEN_KEY) ?? "";
+
+export const clearToken = () => {
+  Cookies.remove(TOKEN_KEY);
+};
+
+export const clearFilters = () => {
+  Cookies.remove(FILTERS_KEY);
+};

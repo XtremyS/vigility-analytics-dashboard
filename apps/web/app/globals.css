@@ -1,26 +1,32 @@
+@import "antd/dist/reset.css";
+
 * {
   box-sizing: border-box;
 }
 
 body {
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fb;
-  color: #1b1f24;
+  font-family: Inter, Arial, Helvetica, sans-serif;
+  background: linear-gradient(180deg, #eef2ff 0%, #f8fafc 100%);
+  color: #0f172a;
 }
 
 .container {
-  max-width: 1100px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 24px;
 }
 
-.card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 16px;
-  margin-bottom: 16px;
-  box-shadow: 0 2px 10px rgba(10, 10, 10, 0.06);
+.auth-page {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+}
+
+.auth-card {
+  width: 100%;
+  max-width: 440px;
 }
 
 .row {
@@ -29,17 +35,21 @@ body {
   flex-wrap: wrap;
 }
 
-input,
-select,
-button {
-  padding: 8px 10px;
-  border: 1px solid #d5dce5;
-  border-radius: 6px;
+.dashboard-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
 }
 
-button {
-  cursor: pointer;
-  background: #2563eb;
-  color: #fff;
-  border: none;
+.chart-wrap {
+  width: 100%;
+  height: 320px;
+}
+
+.chart-empty {
+  height: 320px;
+  display: grid;
+  place-items: center;
+  color: #64748b;
 }
