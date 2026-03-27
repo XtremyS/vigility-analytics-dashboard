@@ -39,7 +39,7 @@ copy .env.example .env.local
 npm run dev
 ```
 
-Open `http://localhost:3000`
+Open `https://rajulverma-app-analytic-dashboard.netlify.app/`
 
 ### Frontend Routes
 
@@ -78,6 +78,7 @@ This creates:
 ## Frontend UX Features
 
 - Toast notifications for login, register, API failures, and logout.
+- Input validations for login, register pages.
 - Loading spinners during dashboard data fetch and auth bootstrap.
 - Empty states for charts when no filtered data is available.
 - One-click logout button in dashboard header.
@@ -91,7 +92,7 @@ At 1 million writes per minute, I would separate ingestion from querying by intr
 ## Submission Checklist
 
 - [✅] Push code to GitHub
-- [ ] Deploy backend publicly (Render/Railway)
-- [ ] Deploy frontend publicly (Vercel/Netlify)
-- [ ] Set frontend API URL to deployed backend
-- [ ] Include live URL in this README
+- [✅] Deploy backend publicly (Render/Railway)
+- [✅] Deploy frontend publicly (Vercel/Netlify)
+- [✅] Set frontend API URL to deployed backend
+- [✅] Include live URL in this README
