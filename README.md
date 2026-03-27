@@ -89,6 +89,15 @@ This creates:
 At 1 million writes per minute, I would separate ingestion from querying by introducing a durable event stream (Kafka/Kinesis/PubSub) in front of storage so the API only validates/authenticates and enqueues events. Stateless consumers would batch writes into a high-throughput store (partitioned Postgres, ClickHouse, or a time-series database), while a separate aggregation pipeline would build precomputed rollups by feature/time bucket for fast dashboard reads. I would add idempotency keys, backpressure controls, and autoscaled workers, then serve analytics from cached/materialized views (Redis + OLAP tables) instead of executing heavy aggregations on the primary transactional path.
 
 
+## NOTE
+
+I've already seeded the some of the user data as the dashboard was blank on initial login you can use these credentials for the data check, nonetheless you can also create custom user via register page but the only thing is you have to perform several actions like changing filters.
+
+Username `user_1`
+Password `password123`
+
+
+
 ## Submission Checklist
 
 - [✅] Push code to GitHub
