@@ -92,7 +92,7 @@ At 1 million writes per minute, I would separate ingestion from querying by intr
 ## Submission Checklist
 
 - [✅] Push code to GitHub
-- [✅] Deploy backend publicly (Render/Railway)
-- [✅] Deploy frontend publicly (Vercel/Netlify)
+- [✅] Deploy backend publicly (Railway)
+- [✅] Deploy frontend publicly (Netlify)
 - [✅] Set frontend API URL to deployed backend
 - [✅] Include live URL in this README
